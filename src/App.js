@@ -10,20 +10,7 @@ import './App.css';
 // }
 function CardList(){
   return (
-    <div className='cardlist'>
-      <Card card={card}>
-        <p>children tag</p>
-      </Card>
-      <Card2 card={card}/>
-      {/* <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/> */}
-      
-    </div>
+      <main className='card-list'>{newFruits}</main>
     );
 }
 
@@ -33,36 +20,11 @@ const card={
   description:"card description",
 };
 
-function Card(props){
-  console.log(props.title);
-  var card = props.card;
- 
-  return (
-  <section className='card'>
-    <img src={props.card.image} alt='cardname'/>
-    <h1 style={{marginTop:"1rem"}}>{props.card.title}</h1>
-    <Description card={card}/>
-    {props.children}
-  </section>
-  );
-}
-//  OBJECT DESTRUCTURING
-  function Card2({card: {image, title}}){
-    // const {image, title } = props;
-    
-   
-    return (
-    <section className='card'>
-      <img src={image} alt='cardname'/>
-      <h1 style={{marginTop:"1rem"}}>{title}</h1>
-      
-    </section>
-    );
-    }
+const fruits=["orange","apple"];
+const newFruits = fruits.map((fruit)=><h1>{fruit}</h1>);
 
-  function Description(props){
-    return <p style={{marginTop:"1rem"}}>{props.card.description}</p>;
-  }
+
+
 
 
 export default CardList;
